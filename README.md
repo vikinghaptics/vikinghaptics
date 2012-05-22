@@ -1,4 +1,4 @@
 vikinghaptics
 =============
 
-Heptics of vikings
+Haptics for vikings
