@@ -4,23 +4,26 @@
 import os
 
 def encrypt_char(msg_char, key_char):
+    """Takes one message character and encrypts it
+    with a key character."""
     return chr(ord(msg_char) ^ ord(key_char))
 
 def decrypt_char(ciphertext_char, key_char):
-    """Takes two characters and decrypt the first using
-    the second as a key."""
+    """Takes one ciphertext character and decrypts it
+    with a key character."""
     return encrypt_char(ciphertext_char, key_char)
 
 def encrypt(msg, key):
-    """Encrypts msg string with key."""
+    """Encrypts the message string with the key."""
     cipher = [encrypt_char(m, k) for (m, k) in zip(msg, key)]
     return ''.join(cipher)
 
 def decrypt(ciphertext, key):
-    """Decrypts ciphertext string with key."""
+    """Decrypts the ciphertext string with the key."""
     return encrypt(ciphertext, key)
 
 def get_key():
+    """Returns a 20 byte key."""
     return os.urandom(20)
 
 msg = "Attack at dawn"
